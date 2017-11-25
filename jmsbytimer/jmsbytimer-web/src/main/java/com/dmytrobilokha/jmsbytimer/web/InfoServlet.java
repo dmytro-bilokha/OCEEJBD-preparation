@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(urlPatterns = "/")
 public class InfoServlet extends HttpServlet {
@@ -24,11 +23,8 @@ public class InfoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOGGER.info("InfoServlet doGet called");
-        PrintWriter output = resp.getWriter();
-        output.print("<html><body>");
-        for (String message : messageStorage.getMessages())
-            output.print("<p>" + message + "</p>");
-        output.print("</body></html>");
+        req.setAttribute("messages", messageStorage.getMessages());
+        req.getRequestDispatcher("/WEB-INF/jsp/info.jspx").forward(req, resp);
     }
 
 }
