@@ -2,12 +2,10 @@ package com.dmytrobilokha.jmsbytimer.ejb;
 
 import javax.ejb.Schedule;
 import javax.ejb.Singleton;
-import javax.ejb.Startup;
 import javax.inject.Inject;
 import java.time.LocalDateTime;
 
 @Singleton
-@Startup
 public class MessageSource {
 
     private int counter = 0;
