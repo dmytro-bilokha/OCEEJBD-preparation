@@ -30,7 +30,7 @@ public class InfoServlet extends HttpServlet {
         LOGGER.info("InfoServlet doGet called");
         messagesCarrier.setTitle("Request " + REQUEST_COUNTER.incrementAndGet());
         messagesCarrier.setMessages(messageStorage.getMessages());
-        req.getRequestDispatcher("/WEB-INF/jsp/info.jspx").forward(req, resp);
+        NavigablePage.INFO.forwardTo(req, resp);
     }
 
 }
