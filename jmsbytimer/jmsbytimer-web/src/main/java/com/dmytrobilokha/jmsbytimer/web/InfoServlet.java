@@ -30,8 +30,8 @@ public class InfoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         LOGGER.info("InfoServlet doGet called");
-        messagesCarrier.setMessage("Message " + REQUEST_COUNTER.incrementAndGet());
-        req.setAttribute("messages", messageStorage.getMessages());
+        messagesCarrier.setTitle("Request " + REQUEST_COUNTER.incrementAndGet());
+        messagesCarrier.setMessages(messageStorage.getMessages());
         req.getRequestDispatcher("/WEB-INF/jsp/info.jspx").forward(req, resp);
     }
 

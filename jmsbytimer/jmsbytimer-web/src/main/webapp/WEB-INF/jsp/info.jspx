@@ -6,8 +6,8 @@
     version="2.1">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <body>
-        <h1><c:out value="${messagesCarrier.message}"/></h1>
-        <c:forEach items="${messages}" var="msg">
+        <h1><c:out value="${messagesCarrier.title}"/></h1>
+        <c:forEach items="${messagesCarrier.messages}" var="msg">
             <p><c:out value="${msg}"/></p>
         </c:forEach>
     </body>
